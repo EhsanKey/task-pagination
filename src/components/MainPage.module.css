@@ -1,0 +1,24 @@
+main {
+  padding: 10px;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 270px);
+  gap: 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0px 50px;
+  height: 100%;
+  margin-top: 13px;
+}
+
+footer {
+  margin-top: 40px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+footer ul {
+  justify-content: space-evenly;
+}

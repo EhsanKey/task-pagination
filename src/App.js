@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import ChekedLocalStorage from "./components/helper/ChekedLocalStorage";
+import MainPage from "./components/MainPage";
+import DeatelsPost from "./components/shared/DeatelsPost";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <ChekedLocalStorage />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/:id" element={<DeatelsPost />} />
+      </Routes>
+    </Fragment>
   );
-}
+};
 
 export default App;
