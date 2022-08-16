@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import fetchData from "../services/fetchData";
 //Mui
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 //Styles
 import Styles from "./DeatelsPost.module.css";
 const DeatelsPost = () => {
   const navigate = useNavigate();
 
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   //fetch Data
   useEffect(() => {
     const getPhoto = async () => {
@@ -17,7 +17,15 @@ const DeatelsPost = () => {
     };
     getPhoto();
   }, []);
-  console.log(data);
+
+  if (!Object.keys(data).length) {
+    return (
+      <div className={Styles.loading}>
+        <CircularProgress color="secondary" />
+      </div>
+    );
+  }
+
   return (
     <div className={Styles.container}>
       <img src={data.url} />

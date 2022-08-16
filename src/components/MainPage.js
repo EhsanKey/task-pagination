@@ -8,7 +8,7 @@ import { getLocalStorage, setLocalStorage } from "../functions/localStorage";
 //Components
 import Post from "./shared/Post";
 //mui
-import Pagination from "@mui/material/Pagination";
+import { Pagination, CircularProgress } from "@mui/material";
 //Styles
 import Styles from "./MainPage.module.css";
 const MainPage = () => {
@@ -30,6 +30,14 @@ const MainPage = () => {
     setPage(value);
     setLocalStorage("page", value);
   };
+
+  if (!data.length) {
+    return (
+      <div className={Styles.loading}>
+        <CircularProgress color="secondary" />
+      </div>
+    );
+  }
 
   return (
     <main>

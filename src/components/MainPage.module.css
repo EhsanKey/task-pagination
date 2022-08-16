@@ -22,3 +22,10 @@ footer {
 footer ul {
   justify-content: space-evenly;
 }
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
