@@ -21,6 +21,8 @@ const MainPage = () => {
     const getUsers = async () => {
       setData(await fetchData(getLocalStorage("page")));
     };
+    
+    setPage(getLocalStorage("page"));
 
     getUsers();
     topScroll();
